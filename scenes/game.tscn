@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cp0de4038digu"]
+[gd_scene load_steps=12 format=3 uid="uid://cp0de4038digu"]
 
 [ext_resource type="Texture2D" uid="uid://doja8amgfav6p" path="res://assets/sprites/world_tileset.png" id="1_0h4i6"]
 [ext_resource type="PackedScene" uid="uid://dg8nicm6fbuby" path="res://scenes/player.tscn" id="1_rjgpk"]
 [ext_resource type="PackedScene" uid="uid://dl1hsh7w8e8hn" path="res://scenes/platform.tscn" id="3_ysjhk"]
 [ext_resource type="PackedScene" uid="uid://e6ibak41fxyn" path="res://scenes/coin.tscn" id="4_1cwac"]
+[ext_resource type="PackedScene" uid="uid://dokybqnwav0kp" path="res://scenes/killzone.tscn" id="5_jxvmt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_di24w"]
 texture = ExtResource("1_0h4i6")
@@ -211,6 +212,8 @@ _data = {
 "move": SubResource("Animation_rm1m6")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xu1ba"]
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -236,6 +239,8 @@ position = Vector2(28, 30)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -7)
 zoom = Vector2(4, 4)
+limit_bottom = 100
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Coin" parent="." instance=ExtResource("4_1cwac")]
@@ -250,8 +255,26 @@ position = Vector2(168, -89)
 [node name="Coin4" parent="." instance=ExtResource("4_1cwac")]
 position = Vector2(360, -41)
 
+[node name="Coin7" parent="." instance=ExtResource("4_1cwac")]
+position = Vector2(584, -42)
+
+[node name="Coin8" parent="." instance=ExtResource("4_1cwac")]
+position = Vector2(584, -55)
+
+[node name="Coin9" parent="." instance=ExtResource("4_1cwac")]
+position = Vector2(584, -68)
+
+[node name="Coin10" parent="." instance=ExtResource("4_1cwac")]
+position = Vector2(584, -81)
+
 [node name="Coin5" parent="." instance=ExtResource("4_1cwac")]
 position = Vector2(328, -41)
 
 [node name="Coin6" parent="." instance=ExtResource("4_1cwac")]
 position = Vector2(296, -25)
+
+[node name="Killzone" parent="." instance=ExtResource("5_jxvmt")]
+position = Vector2(49, 127)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_xu1ba")

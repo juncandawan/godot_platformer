@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cp0de4038digu"]
+[gd_scene load_steps=15 format=3 uid="uid://cp0de4038digu"]
 
 [ext_resource type="Texture2D" uid="uid://doja8amgfav6p" path="res://assets/sprites/world_tileset.png" id="1_0h4i6"]
 [ext_resource type="PackedScene" uid="uid://dg8nicm6fbuby" path="res://scenes/player.tscn" id="1_rjgpk"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ucgiq"]
 [ext_resource type="PackedScene" uid="uid://dl1hsh7w8e8hn" path="res://scenes/platform.tscn" id="3_ysjhk"]
 [ext_resource type="PackedScene" uid="uid://e6ibak41fxyn" path="res://scenes/coin.tscn" id="4_1cwac"]
 [ext_resource type="PackedScene" uid="uid://dokybqnwav0kp" path="res://scenes/killzone.tscn" id="5_jxvmt"]
 [ext_resource type="PackedScene" uid="uid://bisai6jjm0qoa" path="res://scenes/slime.tscn" id="6_liqd3"]
+[ext_resource type="FontFile" uid="uid://c5to0g73lwoqh" path="res://assets/fonts/PixelOperator8.ttf" id="7_j4ytg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_di24w"]
 texture = ExtResource("1_0h4i6")
@@ -217,6 +219,20 @@ _data = {
 
 [node name="Game" type="Node2D"]
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ucgiq")
+
+[node name="ScoreLabel" type="Label" parent="GameManager"]
+offset_left = 204.0
+offset_top = -65.0
+offset_right = 282.0
+offset_bottom = -35.0
+theme_override_fonts/font = ExtResource("7_j4ytg")
+theme_override_font_sizes/font_size = 8
+text = "You have collected 0 coins"
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jtx1u")
 format = 2
@@ -273,6 +289,14 @@ position = Vector2(328, -41)
 [node name="Coin6" parent="Coins" instance=ExtResource("4_1cwac")]
 position = Vector2(296, -25)
 
+[node name="Slimes" type="Node2D" parent="."]
+
+[node name="Slime" parent="Slimes" instance=ExtResource("6_liqd3")]
+position = Vector2(280, 19)
+
+[node name="Slime2" parent="Slimes" instance=ExtResource("6_liqd3")]
+position = Vector2(520, -45)
+
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="platform" parent="Platforms" instance=ExtResource("3_ysjhk")]
@@ -287,8 +311,12 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Slime" parent="." instance=ExtResource("6_liqd3")]
-position = Vector2(280, 19)
-
-[node name="Slime2" parent="." instance=ExtResource("6_liqd3")]
-position = Vector2(520, -45)
+[node name="Label" type="Label" parent="."]
+offset_left = -195.0
+offset_top = -35.0
+offset_right = -117.0
+offset_bottom = -7.0
+theme_override_fonts/font = ExtResource("7_j4ytg")
+theme_override_font_sizes/font_size = 8
+text = "Welcome to the game"
+autowrap_mode = 2

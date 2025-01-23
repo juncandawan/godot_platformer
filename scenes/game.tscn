@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cp0de4038digu"]
+[gd_scene load_steps=16 format=3 uid="uid://cp0de4038digu"]
 
 [ext_resource type="Texture2D" uid="uid://doja8amgfav6p" path="res://assets/sprites/world_tileset.png" id="1_0h4i6"]
 [ext_resource type="PackedScene" uid="uid://dg8nicm6fbuby" path="res://scenes/player.tscn" id="1_rjgpk"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ucgiq"]
+[ext_resource type="FontFile" uid="uid://drcvhhnihtger" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_43geo"]
 [ext_resource type="PackedScene" uid="uid://dl1hsh7w8e8hn" path="res://scenes/platform.tscn" id="3_ysjhk"]
 [ext_resource type="PackedScene" uid="uid://e6ibak41fxyn" path="res://scenes/coin.tscn" id="4_1cwac"]
 [ext_resource type="PackedScene" uid="uid://dokybqnwav0kp" path="res://scenes/killzone.tscn" id="5_jxvmt"]
@@ -228,7 +229,8 @@ offset_left = 204.0
 offset_top = -65.0
 offset_right = 282.0
 offset_bottom = -35.0
-theme_override_fonts/font = ExtResource("7_j4ytg")
+theme_override_colors/font_color = Color(0.205117, 0.205117, 0.205117, 1)
+theme_override_fonts/font = ExtResource("2_43geo")
 theme_override_font_sizes/font_size = 8
 text = "You have collected 0 coins"
 autowrap_mode = 2
